@@ -16,14 +16,14 @@ ChartJS.register(
 const LineChart = () => {
   const [chart, setChart] = useState({})
   var baseUrl = "https://api.coinranking.com/v2/coins/?limit=10";
-  var proxyUrl = "https://cors-anywhere.herokuapp.com/";
+  
   var apiKey = "coinranking612700fd0bc83d6253723f43ad94b9c48fa0a966f69f19e6";
 
 
 
   useEffect(() => {
     const fetchCoins = async () => {
-      await fetch(`${proxyUrl}${baseUrl}`, {
+      await fetch(`${baseUrl}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ const LineChart = () => {
         });
     };
     fetchCoins()
-  }, [baseUrl, proxyUrl, apiKey])
+  }, [baseUrl, apiKey])
 
   console.log("chart", chart);
   var data = {
